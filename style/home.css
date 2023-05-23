@@ -75,6 +75,7 @@ body{
     text-decoration: none;
     font-weight: 900;
     margin-left: 30px;
+    transition: all 500ms ease-in-out;
 } 
 
 .navbar a:hover,
@@ -306,8 +307,8 @@ body{
 }
 
 .about-img img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 500px;
     border: .2rem solid #6408bf ;
     
@@ -318,11 +319,11 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     border-radius: 50%;
-    border-top: .2rem solid #ededed;
-    border-bottom: .2rem solid #ededed;
+    border-top: .2rem solid rgb(11, 0, 26);;
+    border-bottom: .2rem solid rgb(11, 0, 26);;
     border-left: .2rem solid  #6408bf;
     border-right: .2rem solid #6408bf;
 }
