@@ -25,10 +25,19 @@ window.onscroll = () => {
                 links.classList.remove('active');
                 document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
             });
+
+            sec.classList.add('showAnimate');
+        }
+
+        else{
+            sec.classList.remove('showAnimate');
         }
     });
 
     let header = document.querySelector('header');
 
     header.classList.toggle('sticky', window.scrollY> 100)
+
+    menuIcon.classList.remove('bx-x')
+    navbar.classList.remove('active')
 }

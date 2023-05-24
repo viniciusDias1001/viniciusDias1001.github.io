@@ -23,7 +23,7 @@
     justify-content: space-between;
     background-color: transparent;
     transition: .3s;
-    z-index: 2;
+    z-index: 100;
    
 }
 
@@ -50,6 +50,7 @@ body{
 }
 
 #menu-icon{
+    position: relative;
         font-size: 2.0rem;
         cursor: pointer;
         display: none;
@@ -61,6 +62,10 @@ body{
     text-decoration: none;
     font-weight: 900;
     
+}
+
+.navbar{
+    position: relative;
 }
 .logo::before{
     content: '';
@@ -100,10 +105,12 @@ body{
 .home-content{
    
     max-width: 900px;
+    z-index: 99;
 }
 
 .home-content h1{
     position: relative;
+    display: inline-block;
     font-size: 60px;
     font-weight: 800;
     line-height: 1.3;
@@ -271,6 +278,7 @@ body{
     width: 500px;
     height: 500px;
     border: none;
+    margin-left: 200PX;
 }
 
 
@@ -328,13 +336,14 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     border-top: .2rem solid rgb(11, 0, 26);;
     border-bottom: .2rem solid rgb(11, 0, 26);;
     border-left: .2rem solid  #6408bf;
     border-right: .2rem solid #6408bf;
+    animation: aboutSpiner 8s linear infinite ;
 }
 
 .about-content{
@@ -342,6 +351,7 @@ body{
 }
 
 .about-content h3 {
+    margin-top: 40px;
     font-size: 2.6rem;
 }
 
@@ -653,6 +663,25 @@ width: 15rem;
     color: #d8d8d8;
 }
 
+.animate{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 98;
+}
+
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.home.showAnimate .animate{   
+
+    animation: showRithg 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+
+}
 
 @media (max-width: 1200px){
     html{
@@ -694,33 +723,34 @@ width: 15rem;
         left: -100%;
         width: 100%;
         padding: 1rem 4%;
-        background-color: #150229;
+        background-color: #ffffffce;
         box-shadow: 0 .5rem 1rem rgb(0, 0,0, .3);
-        transition: .5s ease;
-        transition-delay: .1s;
+        z-index: 1;
+        transition: .25s ease;
+        transition-delay: .0s;
+        
     }
 
     .navbar.active{
         left: 0;
         transition-delay: 0s;
+        
     }
 
-    .navbar.active .active-nav{
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        border-top: .1rem solid rgb(0, 0,0, .3);
-        z-index: -1;
-        transition: .25s ease;
-        transition-delay: 0s;
-    }
+   .navbar .active-nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: .1rem solid rgb(0, 0,0, .3);
+    z-index: -1;
+   }
 
-    .navbar.active .active-nav{
-        left: 0;
-        transition-delay: .25s;
-    }
+   .navbar.active .active-nav{
+    left: 0;
+    transition-delay: .25s;
+   }
 
     .navbar a{
         display: block;
@@ -734,8 +764,97 @@ width: 15rem;
 
     .navbar.active a{
             transform: translateX(0);
-            transition-delay: 25s;
-            color: yellowgreen;
+            transition-delay: .25s;
+            color: #6408bf
     }
+
+    .home-img{
+        pointer-events: none;
+        opacity: .1;
+    }
+
+
+    
    
+}
+
+
+@media (max-width: 520px){
+    html{
+        font-size: 50%;
+    }
+
+    .home-content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-sci{
+        width: 160px;
+    }
+
+    .home-sci a{
+        width: 45px;
+        height: 45px;
+    }
+
+   
+
+   
+}
+
+@media (max-width: 462px){
+    .home-content h1{
+        font-size: 5rem;
+    }
+
+    .education{
+        padding: 10rem 4% 5rem 5%;
+    }
+
+    .about-content{
+        padding: 10rem 4% 5rem 5%;
+        margin-right: 30px;
+    }
+
+    .footer{
+        flex-direction: column-reverse;
+    }
+
+    .footer p{
+        margin-top: 2rem;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 371px){
+    .home{
+        justify-content: center;
+    }
+
+    .home-content{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-content h1{
+        font-size: 4.5rem;
+    }
+}
+
+
+@keyframes aboutSpiner{
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+
+@keyframes showRithg{
+    100%{
+        width: 0;
+    }
 }
